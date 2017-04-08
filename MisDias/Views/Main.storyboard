@@ -125,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dayTableView" destination="Nhs-xa-FKA" id="s4E-Jn-cTb"/>
                         <segue destination="bo4-XT-hT1" kind="show" identifier="detailDay" id="4K5-hY-pG5"/>
                     </connections>
                 </viewController>
@@ -157,9 +158,26 @@
                             <constraint firstItem="rOv-W8-JQh" firstAttribute="centerX" secondItem="Kaj-0x-wsM" secondAttribute="centerX" id="ZIA-58-r4s"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detalle" id="Rv9-dN-cmV"/>
+                    <navigationItem key="navigationItem" title="Detalle" id="Rv9-dN-cmV">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="V4h-aL-9d4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eqE-4m-F3X">
+                                <rect key="frame" x="319" y="2" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Y8q-lj-fwl"/>
+                                    <constraint firstAttribute="width" constant="40" id="gE4-9Q-X4T"/>
+                                </constraints>
+                                <state key="normal" image="favorite"/>
+                                <state key="selected" image="fillFavorite"/>
+                                <connections>
+                                    <action selector="favorite:" destination="bo4-XT-hT1" eventType="touchUpInside" id="nSH-I3-xH1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dayLabel" destination="rOv-W8-JQh" id="f7F-jq-IRc"/>
+                        <outlet property="favoriteButton" destination="eqE-4m-F3X" id="QJg-U2-m3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X8-5s-XQs" userLabel="First Responder" sceneMemberID="firstResponder"/>

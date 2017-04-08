@@ -8,8 +8,12 @@
 
 import UIKit
 
-class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DetailDayViewControllerDelegate {
 
+     // MARK: - IBoutlet
+    @IBOutlet weak var dayTableView: UITableView!
+    
+    
     // MARK: - Properties
     var days: [Day]?
     
@@ -41,7 +45,9 @@ class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! DayCell
         
         let day = days?[indexPath.row]
+        cell.day = day
         cell.dayLabel.text = day?.day
+        cell.favoriteButton.isSelected = (day?.favorite)!
         
         return cell
     }
@@ -61,7 +67,12 @@ class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if let detailDayVC = segue.destination as? DetailDayViewController {
             detailDayVC.day = sender as! Day
+            detailDayVC.delegate = self
         }
+    }
+    
+    func updateFavorite() {
+        dayTableView.reloadData()
     }
 
 }

@@ -14,6 +14,9 @@ class DayCell: UITableViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    //MARK: - Properties
+    var day: Day?
+    
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +33,7 @@ class DayCell: UITableViewCell {
     @IBAction func favorite(_ sender: UIButton) {
         
         favoriteButton.isSelected = !sender.isSelected
-    
+        day?.favorite = favoriteButton.isSelected
     }
 
     

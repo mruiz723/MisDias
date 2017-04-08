@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol DetailDayViewControllerDelegate {
+    
+    func updateFavorite()
+
+}
 class DetailDayViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     //MARK: - Properties
     var day: Day!
+    var delegate: DetailDayViewControllerDelegate?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -29,15 +36,18 @@ class DetailDayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - IBActions
+    @IBAction func favorite(_ sender: UIButton) {
+        favoriteButton.isSelected = !favoriteButton.isSelected
+        day.favorite = favoriteButton.isSelected
+        delegate?.updateFavorite()
+    }
+    
+    
     // MARK: - Utils
     
     func loadData() {
         dayLabel.text = day?.day
+        favoriteButton.isSelected = (day?.favorite)!
     }
-
-
-    
-    
-    
-    
 }
