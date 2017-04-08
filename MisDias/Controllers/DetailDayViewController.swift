@@ -14,7 +14,7 @@ class DetailDayViewController: UIViewController {
     @IBOutlet weak var dayLabel: UILabel!
     
     //MARK: - Properties
-    var day: String!
+    var day: Day!
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class DetailDayViewController: UIViewController {
     // MARK: - Utils
     
     func loadData() {
-        dayLabel.text = day
+        dayLabel.text = day?.day
     }
 
 

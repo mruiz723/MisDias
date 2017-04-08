@@ -11,7 +11,7 @@ import UIKit
 class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Properties
-    let days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+    var days: [Day]?
     
     
     // MARK: - LifeCycle
@@ -20,6 +20,7 @@ class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        days = Day.days()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +31,24 @@ class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return days.count
+        if let items = days {
+            return items.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! DayCell
         
-        cell.dayLabel.text = days[indexPath.row]
+        let day = days?[indexPath.row]
+        cell.dayLabel.text = day?.day
         
         return cell
     }
 
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let day = days[indexPath.row]
+        let day = days?[indexPath.row]
         performSegue(withIdentifier: "detailDay", sender: day)
     }
     
@@ -55,7 +60,7 @@ class DaysViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Pass the selected object to the new view controller.
         
         if let detailDayVC = segue.destination as? DetailDayViewController {
-            detailDayVC.day = sender as! String
+            detailDayVC.day = sender as! Day
         }
     }
 
