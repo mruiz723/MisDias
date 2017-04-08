@@ -184,6 +184,75 @@
             </objects>
             <point key="canvasLocation" x="2575" y="139"/>
         </scene>
+        <!--Mis Dias!!!-->
+        <scene sceneID="JcP-gw-tLL">
+            <objects>
+                <viewController id="lXL-Iw-VbJ" customClass="LoginViewController" customModule="MisDias" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4sR-sl-PF7"/>
+                        <viewControllerLayoutGuide type="bottom" id="qti-TR-eTc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ien-Di-maa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8N1-9B-vNX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TFH-zY-Z6Z">
+                                <rect key="frame" x="112" y="164" width="150" height="70"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sm-eh-r8p">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="3kN-03-voB"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNf-XK-YTc">
+                                        <rect key="frame" x="0.0" y="40" width="150" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxA-aB-vKj">
+                                <rect key="frame" x="156" y="257" width="62" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.80972521551724141" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Ingresar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="lXL-Iw-VbJ" eventType="touchUpInside" id="RJm-9i-8gZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qxA-aB-vKj" firstAttribute="centerX" secondItem="Ien-Di-maa" secondAttribute="centerX" id="6Vw-aQ-u88"/>
+                            <constraint firstItem="8N1-9B-vNX" firstAttribute="leading" secondItem="Ien-Di-maa" secondAttribute="leading" id="8xl-SO-w8j"/>
+                            <constraint firstAttribute="trailing" secondItem="8N1-9B-vNX" secondAttribute="trailing" id="Fn9-iP-tHb"/>
+                            <constraint firstItem="8N1-9B-vNX" firstAttribute="top" secondItem="4sR-sl-PF7" secondAttribute="bottom" id="Igh-pd-zn5"/>
+                            <constraint firstItem="TFH-zY-Z6Z" firstAttribute="top" secondItem="4sR-sl-PF7" secondAttribute="bottom" constant="100" id="NFw-C7-N3h"/>
+                            <constraint firstItem="TFH-zY-Z6Z" firstAttribute="centerX" secondItem="Ien-Di-maa" secondAttribute="centerX" id="aDI-nh-HaZ"/>
+                            <constraint firstItem="qxA-aB-vKj" firstAttribute="top" secondItem="TFH-zY-Z6Z" secondAttribute="bottom" constant="23" id="qbs-tc-LXh"/>
+                            <constraint firstItem="qti-TR-eTc" firstAttribute="top" secondItem="8N1-9B-vNX" secondAttribute="bottom" id="x64-72-KZK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mis Dias!!!" id="YwL-Yx-Uuy"/>
+                    <connections>
+                        <outlet property="paswordTextField" destination="LNf-XK-YTc" id="oiO-Mc-ZYA"/>
+                        <outlet property="userTextField" destination="4sm-eh-r8p" id="ex8-ZT-JCs"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="menuDay" id="Gr7-30-HV6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJE-Wk-6Dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="348" y="138.98050974512745"/>
+        </scene>
         <!--Days Table View Controller-->
         <scene sceneID="sCt-ua-YTN">
             <objects>
@@ -223,16 +292,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TzT-WY-cNm"/>
+                        <segue destination="lXL-Iw-VbJ" kind="relationship" relationship="rootViewController" id="7my-Ee-Dhz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKy-Av-xwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="139"/>
+            <point key="canvasLocation" x="-433" y="139"/>
         </scene>
     </scenes>
     <resources>
         <image name="favorite" width="50" height="50"/>
         <image name="fillFavorite" width="48" height="48"/>
+        <image name="loginBackground" width="800" height="600"/>
     </resources>
 </document>
